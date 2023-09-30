@@ -1,0 +1,20 @@
+<!-- create_room.html -->
+
+{% extends 'core/base.html' %}
+
+{% block title %}Rooms | {% endblock %}
+{% block content %}
+<center>
+    <div class="w-full py-10  items-center">
+        <h2 color='white'>Create a New Room</h2><br>
+        <form method="post">
+            {% csrf_token %}
+              {{ form.as_p }}
+              <div class="w-full py-10  items-center">
+      <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Create Room</button>
+              </div>
+       </form>
+    </div>
+
+</center>
+{% endblock %}
