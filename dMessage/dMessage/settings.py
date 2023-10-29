@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import dj_database_url
 from pathlib import Path
 import os
 
@@ -95,7 +95,7 @@ DATABASES = {
     }
 }
 
-
+DATABASES["default"] = dj_database_url.parse("postgres://message_me_database_user:sgOHLLp66IrxwBvxhU0hbFOhn03OtU7w@dpg-ckv36pbamefc73b9vvhg-a.oregon-postgres.render.com/message_me_database")
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
