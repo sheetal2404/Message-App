@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-px5w&j4%x-uy%v4-2mctx6)f#s_=yk#d)*(b3xwo)m2^01&-7!"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
 
 LOGOUT_REDIRECT_URL = '/'
@@ -95,6 +95,7 @@ DATABASES = {
     }
 }
 
+#database_url = os.environ.get("DATABASE_URL")
 DATABASES["default"] = dj_database_url.parse("postgres://message_me_database_user:sgOHLLp66IrxwBvxhU0hbFOhn03OtU7w@dpg-ckv36pbamefc73b9vvhg-a.oregon-postgres.render.com/message_me_database")
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
